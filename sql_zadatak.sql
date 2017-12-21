@@ -11,3 +11,9 @@ create table aircrafts (
     id SERIAL UNIQUE PRIMARY KEY NOT NULL,
     name varchar(255) NOT NULL
 );
+
+create table crew_experience (
+    crew_member_id SERIAL NOT NULL REFERENCES crew_members(id),
+    aircraft_id SERIAL NOT NULL REFERENCES aircrafts(id),
+    PRIMARY KEY(crew_member_id, aircraft_id)
+);
