@@ -61,8 +61,8 @@ AS total_experience
 FROM crew_members INNER JOIN crew_experience on crew_experience.crew_member_id=crew_members.id
 GROUP BY crew_members.id ORDER BY total_experience ASC LIMIT 1;
 
-#query koji takodjer vrati najiskusnijeg clana posade, ali pretrazi i one clanove posade koji nemaju nikakvo iskustvo
-#i koji se ne nalaze u tabeli crew_experience tako da ocito nije dobar radi performansi
+#query koji takodjer vrati najiskusnije i najneiskusnije clanove posade, ali pretrazi i one clanove
+#koji se ne nalaze u tabeli crew_experience tako da ocito nije dobar radi performansi
 SELECT crew_members.id, crew_members.last_name, 
 (SELECT count(crew_member_id) FROM crew_experience WHERE crew_experience.crew_member_id=crew_members.id) 
-AS total_experience FROM crew_members ORDER BY total_experience DESC LIMIT 1;
+AS total_experience FROM crew_members ORDER BY total_experience DESC;
