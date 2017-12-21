@@ -6,3 +6,8 @@ create table crew_members (
     last_name varchar(255) NOT NULL,
     date_of_birth date NOT NULL
 );
+
+create table aircrafts (
+    id SERIAL UNIQUE PRIMARY KEY NOT NULL,
+    name varchar(255) NOT NULL
+);
