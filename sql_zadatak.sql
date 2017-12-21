@@ -18,7 +18,8 @@ create table crew_experience (
     PRIMARY KEY(crew_member_id, aircraft_id)
 );
 
-insert into crew_members values (default, 'LUKE', 'SKYWALKER', '1983-05-22'), 
+insert into crew_members values (default, 'LUKE', 'SKYWALKER', '1983-05-22'),
+                                (default, 'PADME', 'SKYWALKER', '1970-02-08'), 
 	                            (default, 'ANAKIN', 'SKYWALKER', '1963-07-12'),
 	                            (default, 'HAN', 'SOLO', '1977-08-06'),
 	                            (default, 'OBI-WAN', 'KENOBI', '1953-10-29');
