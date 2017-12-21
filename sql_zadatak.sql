@@ -46,3 +46,16 @@ SELECT first_name, last_name, date_of_birth FROM crew_members ORDER BY date_of_b
 #kako je prvi najstariji na poziciji 0, da nam bude lakse mozemo zapisati OFFSET (nth-1) i na mjesto nth zapisemo 
 #kojeg po redu najstarijeg clana zelimo 
 SELECT first_name, last_name, date_of_birth FROM crew_members ORDER BY date_of_birth ASC LIMIT 1 OFFSET (nth-1);
+
+#query koji nadje najiskusnijeg clana posade, tj. onaj koji poznaje najvise letjelica
+SELECT crew_members.id, crew_members.first_name, crew_members.last_name, count(crew_experience.crew_member_id)
+AS total_experience
+FROM crew_members INNER JOIN crew_experience ON crew_experience.crew_member_id=crew_members.id
+GROUP BY crew_members.id ORDER BY total_experience DESC LIMIT 1;
+
+
+#query koji pronadje najmanje iskusnog clana posade, tj. onog koji poznaje najmanje letjelica
+SELECT crew_members.id, crew_members.first_name, crew_members.last_name, count(crew_experience.crew_member_id)
+AS total_experience
+FROM crew_members INNER JOIN crew_experience on crew_experience.crew_member_id=crew_members.id
+GROUP BY crew_members.id ORDER BY total_experience ASC LIMIT 1;
